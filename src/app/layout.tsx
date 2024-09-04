@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import MainLayout from "@/components/MainLayout";
+import MenuContextProvider from "@/context/MenuContext";
 
 export const metadata: Metadata = {
   title: "Jaida Dashboard",
@@ -13,7 +15,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <MenuContextProvider>
+          <MainLayout>{children}</MainLayout>
+        </MenuContextProvider>
+      </body>
     </html>
   );
 }
